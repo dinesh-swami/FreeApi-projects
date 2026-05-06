@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', system-ui, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+:root {
+  --bg-color: #0f0f0f;
+  --text-color: #ffffff;
+  --card-bg: #1f1f1f;
+  --border-color: #303030;
+  --accent: #ff0000;
+}
+
+.light {
+  --bg-color: #f9f9f9;
+  --text-color: #0f0f0f;
+  --card-bg: #ffffff;
+  --border-color: #e0e0e0;
+}
