@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import UserCard from "../components/UserCard.jsx";
 import Loader from "../components/Loader.jsx";
-import "../styles/home.css";
+import "../styles/Home.css"; //freeApi-Random-Users-Ui\src\styles\Home.css
 
 function Home() {
   const [users, setUsers] = useState([]);
