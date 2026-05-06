@@ -4,7 +4,6 @@ const AuthContext = createContext();
 
 // Use proxy path instead of direct URL
 const API_BASE = '/api/api/v1/users';
-
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) throw new Error('useAuth must be used within AuthProvider');
