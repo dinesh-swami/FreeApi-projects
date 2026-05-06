@@ -1,6 +1,6 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 
-const API_URL = '/api/api/v1/public/cats/cat/random';
+const CAT_API = 'https://api.thecatapi.com/v1/images/search';
 
 export const useCat = () => {
   const [catImage, setCatImage] = useState(null);
@@ -15,19 +15,24 @@ export const useCat = () => {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch(API_URL, { signal: controller.signal });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const json = await res.json();
-      let imageUrl = null;
-      if (json.data?.imageUrl) imageUrl = json.data.imageUrl;
-      else if (json.data?.url) imageUrl = json.data.url;
-      else if (json.imageUrl) imageUrl = json.imageUrl;
-      else imageUrl = `https://cataas.com/cat?width=600&height=400&t=${Date.now()}`;
-      setCatImage({ url: imageUrl, id: Date.now() });
+      const res = await fetch(CAT_API, { signal: controller.signal });
+      if (!res.ok) throw new Error('Failed to fetch');
+      const data = await res.json();
+      if (data && data[0] && data[0].url) {
+        setCatImage({ url: data[0].url, id: Date.now() });
+      } else {
+        throw new Error('No image URL');
+      }
     } catch (err) {
-      if (err.name !== 'AbortError') setError(err.message);
+      if (err.name !== 'AbortError') {
+        setError(err.message);
+        // Fallback to cute placeholder
+        setCatImage({ url: 'https://cataas.com/cat', id: Date.now() });
+      }
     } finally {
-      if (controller.signal === abortRef.current?.signal) setLoading(false);
+      if (controller.signal === abortRef.current?.signal) {
+        setLoading(false);
+      }
     }
   }, []);
 
