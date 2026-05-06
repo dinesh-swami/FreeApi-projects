@@ -1,0 +1,38 @@
+.loader-container {
+  height: 100vh;
+  background: #0f0f0f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #facc15;
+}
+
+.loader {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border:
+    8px solid rgba(255,255,255,0.08);
+
+  border-top:
+    8px solid #facc15;
+
+  animation: spin 0.9s linear infinite;
+
+  margin-bottom: 25px;
+
+  box-shadow:
+    0 0 30px rgba(250,204,21,0.2);
+}
+
+.loader-container h2 {
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
