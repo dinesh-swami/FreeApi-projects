@@ -1,0 +1,50 @@
+.home {
+  width: 100%;
+  min-height: 100vh;
+  padding: 50px 7%;
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.hero-section h1 {
+  font-size: 52px;
+  margin-bottom: 20px;
+}
+
+.hero-section p {
+  color: #94a3b8;
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
+.hero-section input {
+  width: 100%;
+  max-width: 500px;
+
+  padding: 16px 20px;
+
+  border-radius: 14px;
+  border: none;
+  outline: none;
+
+  background: #1e293b;
+  color: white;
+
+  font-size: 16px;
+}
+
+.products-grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+  gap: 30px;
+}
+
+.error-message {
+  text-align: center;
+  margin-top: 100px;
+}
